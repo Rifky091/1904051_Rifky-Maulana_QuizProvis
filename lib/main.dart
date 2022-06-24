@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provis/Chartdua.dart';
-import 'chartsatu.dart';
-import 'datalist.dart';
+import 'Fakultas.dart';
+import 'Fasilitas.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,28 +26,16 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title:
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Text("Keketatan UPI",
-              style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white)),
-        ]),
-      ),
+      appBar: AppBar(title: const Text("Info UPI")),
       body: case2(idx),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: idx,
           selectedItemColor: Colors.red,
           onTap: onItemTap,
           items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Fakultas'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: 'Chart 2020'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: 'Chart 2021'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.school), label: "Data List"),
+                icon: Icon(Icons.school), label: "Fasilitas"),
           ]),
     ));
   }
@@ -57,15 +44,12 @@ class MyAppState extends State<MyApp> {
     switch (idx) {
       case 0:
         {
-          return ChartSatu();
+          return const Fakultas();
         }
+
       case 1:
         {
-          return ChartDua();
-        }
-      case 2:
-        {
-          return DataLIst();
+          return Fasilitas();
         }
     }
   }
